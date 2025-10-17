@@ -1,0 +1,34 @@
+# Perfil específico para BUILD - NÃO PRECISA DE BANCO
+spring:
+  config:
+    activate:
+      on-profile: build
+
+  main:
+    web-application-type: none
+    lazy-initialization: true
+
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+      - org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration
+
+  datasource:
+    initialization-mode: never
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    generate-ddl: false
+
+  sql:
+    init:
+      mode: never
+
+# Desabilita tudo que pode tentar conectar ao banco
+management:
+  endpoints:
+    enabled: false
+  health:
+    enabled: false

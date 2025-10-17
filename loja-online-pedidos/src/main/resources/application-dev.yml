@@ -1,0 +1,27 @@
+# Perfil de desenvolvimento - SÓ USAR QUANDO A APLICAÇÃO ESTIVER RODANDO
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/order_db
+    username: postgres
+    password: password
+    initialization-mode: always
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    generate-ddl: true
+
+  sql:
+    init:
+      mode: always
+
+logging:
+  level:
+    com.guarani: DEBUG
+    org.hibernate.SQL: true
+    org.hibernate.type: trace
